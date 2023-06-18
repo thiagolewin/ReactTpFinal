@@ -1,0 +1,12 @@
+.InputProductos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.InputProductos input {
+    margin-top: 25px;
+    padding: 2px;
+}
+.InputProductos input:focus {
+    outline: none;
+}
