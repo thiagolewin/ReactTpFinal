@@ -1,0 +1,27 @@
+.addToCart {
+    margin-top: 30px;
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid white;
+}
+.addToCart h3 {
+    margin-top: 0;
+}
+.addSubstract {
+    width: 30px;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    user-select: none;
+}
+.addSubstract:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}

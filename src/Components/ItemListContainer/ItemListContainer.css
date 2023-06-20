@@ -5,6 +5,7 @@
 }
 .InputProductos input {
     margin-top: 25px;
+    margin-bottom: 25px;
     padding: 2px;
 }
 .InputProductos input:focus {

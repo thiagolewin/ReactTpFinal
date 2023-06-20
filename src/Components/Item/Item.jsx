@@ -1,10 +1,8 @@
 import './Item.css'
 import { Link } from "react-router-dom";
 export default function Item({index,nombre,precio,sexo,tipo,colores,talles,img}) {
-    
-    console.log(talles.split(" "))
     return (
-        <Link to ={`product/${index}`}>
+        <Link to ={`/ropa/${index}`}>
         <div className="item">
         <img src={img} alt={nombre} />
         <h3>{nombre}</h3>

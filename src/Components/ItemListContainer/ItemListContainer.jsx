@@ -33,12 +33,14 @@ function withSearch(OrigComponent) {
     return wrappedComponent
 }
 function ItemListContainer( {filterList} ) {
-    const {category} = useParams()
-    const functionUsed = category === undefined ? getData : getCategoryData
+    const {category,sexo} = useParams()
+    console.log(category)
+    const functionUsed = (category === undefined && sexo === undefined) ? getData : getCategoryData
+    console.log(functionUsed)
     let [products, setProducts] = useState([])
     useEffect(()=> {
-        functionUsed(category).then((respuesta)=> setProducts(respuesta))
-    },[category])
+        functionUsed(category,sexo).then((respuesta)=> setProducts(respuesta))
+    },[category,sexo])
     if (products.length ==0) {
         return (<><h2>Cargando...</h2></>)
     } else {

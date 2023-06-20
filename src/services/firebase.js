@@ -30,7 +30,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
-export async function getData(data) {
+export async function getData(data,sexo) {
+    console.log("a")
     const productCollectionRef = collection(db,"products")
     const q = query(productCollectionRef,orderBy("index"))
     const productsSnapshot = await getDocs(q);
@@ -40,15 +41,30 @@ export async function getData(data) {
     })
     return dataDocs
 }
-export async function getCategoryData(data) {
+export async function getCategoryData(data,sexo) {
     const productCollectionRef = collection(db,"products")
-    const q = query(productCollectionRef, where("tipo", "==", data))
+    let q = undefined
+    if (data != undefined & sexo != undefined) {
+        q = query(productCollectionRef, where("tipo", "==", data), where("sexo", "==", sexo))
+    } else if (data != undefined) {
+        q = query(productCollectionRef, where("tipo", "==", data))
+    } else {
+        q = query(productCollectionRef, where("sexo", "==", sexo))
+    } 
     const productsSnapshot = await getDocs(q)
     const arrayDocs = productsSnapshot.docs
     const dataDocs = arrayDocs.map((doc)=> {
         return {...doc.data(), id: doc.id}
     })
     return dataDocs
+}
+export async function getItem(id) {
+    const productCollectionRef = collection(db,"products")
+    const q = query(productCollectionRef, where("index", "==", parseInt(id) ))
+    const productsSnapshot = await getDocs(q)
+    const arrayDocs = productsSnapshot.docs
+    const dataDocs = {...arrayDocs[0].data(), id: arrayDocs[0].id}
+    return  dataDocs
 }
 export async function exportDataWithBatch() {
     const batch = writeBatch(db)

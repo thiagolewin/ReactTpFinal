@@ -1,0 +1,91 @@
+.Cart {
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.justify {
+    justify-content: center;
+}
+.cartItem:first-child {
+    margin-top: 100px;
+}
+.cartItem:nth-child(2) {
+    margin-top: 25px;
+}
+.cartItem {
+    display: grid;
+    grid-template-columns: 1fr 9fr 1fr 1fr;
+    height: 100px;
+    background-color: rgb(187, 198, 207);
+    border: 1px solid black;
+    width: 80%;
+    margin-top: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s transform;
+    box-sizing: content-box;
+    align-items: center;
+    justify-items: center;
+}
+.cartItem:hover {
+    transform: scale(1.03);
+    background-color: rgb(100, 110, 117);
+}
+.cartItem:hover h3 {
+    color: white;
+}
+.cartItem img {
+    grid-column: 1;
+    height: 100px;
+    width: 100%;
+}
+.cartItem h2 {
+    grid-column: 2;
+    font-size: 2em;
+}
+.cartItem h3 {
+    grid-column: 3;
+    font-size: 1.5em;
+    color: green;
+}
+.cartItem h4 {
+    grid-column: 4;
+    font-size: 1.5em;
+    justify-content: center;
+    align-items: center;
+
+}
+.tituloArticle {
+    background-color: white;
+    border: none;
+    height: 50px;
+}
+.tituloArticle:hover {
+    transform: none;
+    background-color: initial;
+}
+.tituloArticle h2:first-child {
+    grid-column: 1;
+}
+.tituloArticle h3 {
+    color: black;
+}
+.tituloArticle:hover h3 {
+    color: black;
+}
+.enviar {
+    width: 150px;
+    height: 75px;
+    background-color: green;
+    color: white;
+    border: none;
+    margin-top: 100px;
+    box-shadow: 5px 5px 5px black;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+.enviar:hover {
+    transform: translateX(2px) translateY(-3px);
+    background-color: rgb(5, 71, 5);
+}
