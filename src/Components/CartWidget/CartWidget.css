@@ -15,7 +15,7 @@
 }
 .cartItem {
     display: grid;
-    grid-template-columns: 1fr 9fr 1fr 1fr;
+    grid-template-columns: 1fr 9fr 1fr 1fr 1fr 1fr;
     height: 100px;
     background-color: rgb(187, 198, 207);
     border: 1px solid black;
@@ -44,17 +44,34 @@
     grid-column: 2;
     font-size: 2em;
 }
-.cartItem h3 {
-    grid-column: 3;
-    font-size: 1.5em;
-    color: green;
-}
+
 .cartItem h4 {
     grid-column: 4;
     font-size: 1.5em;
     justify-content: center;
     align-items: center;
 
+}
+.cartItem .trash {
+    grid-column: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.cartItem .trash:hover {
+    background-color: red;
+}
+.cartItem .trash:hover img {
+    transform: scale(1.2);
+}
+.cartItem .trash img {
+    width: 50%;
+    height: 50%;
+}
+.itemCount {
+    grid-column: 6;
 }
 .tituloArticle {
     background-color: white;
@@ -74,18 +91,6 @@
 .tituloArticle:hover h3 {
     color: black;
 }
-.enviar {
-    width: 150px;
-    height: 75px;
-    background-color: green;
-    color: white;
-    border: none;
-    margin-top: 100px;
-    box-shadow: 5px 5px 5px black;
-    cursor: pointer;
-    transition: transform 0.5s;
-}
-.enviar:hover {
-    transform: translateX(2px) translateY(-3px);
-    background-color: rgb(5, 71, 5);
+.total {
+    margin-top: 75px;
 }

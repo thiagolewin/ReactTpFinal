@@ -58,6 +58,32 @@ export async function getCategoryData(data,sexo) {
     })
     return dataDocs
 }
+export async function createOrderWithStockUpdate(data) {
+    const ordersCollectionRef = collection(db, "orders");
+    const batch = writeBatch(db);
+    const { items } = data;
+  
+    for (let itemInCart of items) {
+      const refDoc = doc(db, "products", itemInCart.id);
+      const docSnap = await getDoc(refDoc);
+  
+      const { stock } = docSnap.data();
+      console.log(stock);
+  
+      const stockToUpdate = stock - itemInCart.count;
+      if (stockToUpdate < 0) {
+        throw new Error(`No hay stock suficiente del producto: ${itemInCart.id}`);
+      } else {
+        const docRef = doc(db, "products", itemInCart.id);
+        batch.update(docRef, { stock: stockToUpdate });
+      }
+    }
+  
+    await batch.commit();
+    const response = await addDoc(ordersCollectionRef, data);
+  
+    return response.id;
+  }
 export async function getItem(id) {
     const productCollectionRef = collection(db,"products")
     const q = query(productCollectionRef, where("index", "==", parseInt(id) ))

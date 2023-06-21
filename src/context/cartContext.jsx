@@ -27,6 +27,13 @@ export function CartContextProvider({children}) {
             }
         }
     }
+    function total() {
+        let total = 0;
+        cart.map((item)=> {
+            total+=item.precio * item.count
+        })
+        return total
+    }
     function eliminarItem(product) {
         let newCart = [...cart]
         newCart = newCart.filter((item)=> item.index != product.index)
@@ -34,7 +41,7 @@ export function CartContextProvider({children}) {
     }
 
     return (
-    <cartContext.Provider value={{cart,addItem,substractItem}}>
+    <cartContext.Provider value={{cart,addItem,substractItem,eliminarItem,total}}>
         {children}
     </cartContext.Provider>
         )

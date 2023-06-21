@@ -6,6 +6,7 @@ import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailCont
 import { CartContextProvider } from "./context/cartContext";
 import {createContext} from 'react';
 import CartView from './Components/CartWidget/CartWidget'
+import OrderConfirm from "./Components/OrderConfirm/OrderConfirm";
 function App() {
   return (
     <CartContextProvider>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/products/:sexo" element={<ItemListContainer></ItemListContainer>}></Route>
           <Route path="/products/:category" element={<ItemListContainer></ItemListContainer>}></Route>
           <Route path="/products/:sexo/:category" element={<ItemListContainer></ItemListContainer>}></Route>
+          <Route path='/order-confirmation/:orderid' element={<OrderConfirm ></OrderConfirm >}></Route>
           <Route path="/cart" element={<CartView></CartView>}></Route>
           <Route path="*" element={<h2>404</h2>}></Route>
         </Routes>

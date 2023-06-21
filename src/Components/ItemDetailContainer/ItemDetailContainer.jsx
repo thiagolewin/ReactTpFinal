@@ -33,7 +33,7 @@ export default function ItemDetailContainer() {
                         return <h6 key={talle} className='talle'>{talle}</h6>
                     })}
                     </div>
-                    <ItemCount addItem={miContext.addItem} substractItem={miContext.substractItem} count={count} product={product}></ItemCount>
+                    <ItemCount addItem={miContext.addItem} substractItem={miContext.substractItem} count={count} product={product} clase="addToCart"></ItemCount>
                 </div>
             </section>
             
